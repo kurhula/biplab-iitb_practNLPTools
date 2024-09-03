@@ -37,7 +37,7 @@ setup(name = "practNLPTools",
     #'runner' is in the root.
     #scripts = ["runner.py"],
     long_description = """Practical Natural Language Processing for Humans.""",
-    data_files = walkdir('practnlptools')
+    # data_files = walkdir('practnlptools')
     #
     #This next part it for the Cheese Shop, look a little down the page.
     #classifiers = []    
