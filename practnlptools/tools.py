@@ -46,17 +46,17 @@ class Annotator:
 		os_name = system()
 		executable=""
 		if os_name == 'Linux':
-		    bits = architecture()[0]
-		    if bits == '64bit':
-		    	executable='senna-linux64'
-		    elif bits == '32bit':
-			executable='senna-linux32'
-		    else:
-			executable='senna'
+			bits = architecture()[0]
+			if bits == '64bit':
+				executable='senna-linux64'
+			elif bits == '32bit':
+				executable='senna-linux32'
+			else:
+				executable='senna'
 		if os_name == 'Windows':
-		    executable='senna-win32.exe'
+			executable='senna-win32.exe'
 		if os_name == 'Darwin':
-		    executable='senna-osx'
+			executable='senna-osx'
 		senna_executable = os.path.join(package_directory,executable)
 		cwd=os.getcwd()
 		os.chdir(package_directory)
@@ -71,17 +71,17 @@ class Annotator:
 		os_name = system()
 		executable=""
 		if os_name == 'Linux':
-		    bits = architecture()[0]
-		    if bits == '64bit':
-		    	executable='senna-linux64'
-		    elif bits == '32bit':
-			executable='senna-linux32'
-		    else:
-			executable='senna'
+			bits = architecture()[0]
+			if bits == '64bit':
+				executable='senna-linux64'
+			elif bits == '32bit':
+				executable='senna-linux32'
+			else:
+				executable='senna'
 		if os_name == 'Windows':
-		    executable='senna-win32.exe'
+			executable='senna-win32.exe'
 		if os_name == 'Darwin':
-		    executable='senna-osx'
+			executable='senna-osx'
 		senna_executable = os.path.join(package_directory,executable)
 		cwd=os.getcwd()
 		os.chdir(package_directory)
@@ -150,41 +150,41 @@ class Annotator:
 				splits=curr_label.split("-")
 				if(splits[0]=="S"):
 					if(len(splits)==2):
-				        	if(splits[1]=="V"):
-				                	role[splits[1]]=words[i]
-				                else:
-				                	if splits[1] in role:
-				                        	role[splits[1]]+=" "+words[i]
-				               		else:
-				                        	role[splits[1]]=words[i]
-				      	elif(len(splits)==3):
-				        	if splits[1]+"-"+splits[2] in role:
-				                	role[splits[1]+"-"+splits[2]]+=" "+words[i]
-				               	else:
-				                	role[splits[1]+"-"+splits[2]]=words[i]  
-				elif(splits[0]=="B"):
-			       		temp=temp+" "+words[i]
-			       	elif(splits[0]=="I"):
-					temp=temp+" "+words[i]
-			      	elif(splits[0]=="E"):
-					temp=temp+" "+words[i]
-				       	if(len(splits)==2):
-				        	if(splits[1]=="V"):
-				                	role[splits[1]]=temp.strip()
-				               	else:
-				                   	if splits[1] in role:
-				                        	role[splits[1]]+=" "+temp
-				                             	role[splits[1]]=role[splits[1]].strip()
-				                        else:
-				                               	role[splits[1]]=temp.strip()
-				       	elif(len(splits)==3):
-				             	if splits[1]+"-"+splits[2] in role:
-				              		role[splits[1]+"-"+splits[2]]+=" "+temp
-				             		role[splits[1]+"-"+splits[2]]=role[splits[1]+"-"+splits[2]].strip()
+						if(splits[1]=="V"):
+							role[splits[1]]=words[i]
 						else:
-				                	role[splits[1]+"-"+splits[2]]=temp.strip()
-				      	temp=""          
-			      	i+=1
+							if splits[1] in role:
+								role[splits[1]]+=" "+words[i]
+							else:
+								role[splits[1]]=words[i]
+					elif(len(splits)==3):
+						if splits[1]+"-"+splits[2] in role:
+							role[splits[1]+"-"+splits[2]]+=" "+words[i]
+						else:
+							role[splits[1]+"-"+splits[2]]=words[i]  
+				elif(splits[0]=="B"):
+					temp=temp+" "+words[i]
+				elif(splits[0]=="I"):
+					temp=temp+" "+words[i]
+				elif(splits[0]=="E"):
+					temp=temp+" "+words[i]
+					if(len(splits)==2):
+						if(splits[1]=="V"):
+							role[splits[1]]=temp.strip()
+						else:
+							if splits[1] in role:
+								role[splits[1]]+=" "+temp
+								role[splits[1]]=role[splits[1]].strip()
+							else:
+								role[splits[1]]=temp.strip()
+					elif(len(splits)==3):
+						if splits[1]+"-"+splits[2] in role:
+							role[splits[1]+"-"+splits[2]]+=" "+temp
+							role[splits[1]+"-"+splits[2]]=role[splits[1]+"-"+splits[2]].strip()
+						else:
+							role[splits[1]+"-"+splits[2]]=temp.strip()
+					temp=""          
+				i+=1
 			if("V" in role):
 				roles+=[role]
 		annotations['words']=words
@@ -235,41 +235,41 @@ class Annotator:
 				splits=curr_label.split("-")
 				if(splits[0]=="S"):
 					if(len(splits)==2):
-				        	if(splits[1]=="V"):
-				                	role[splits[1]]=words[i]
-				                else:
-				                	if splits[1] in role:
-				                        	role[splits[1]]+=" "+words[i]
-				               		else:
-				                        	role[splits[1]]=words[i]
-				      	elif(len(splits)==3):
-				        	if splits[1]+"-"+splits[2] in role:
-				                	role[splits[1]+"-"+splits[2]]+=" "+words[i]
-				               	else:
-				                	role[splits[1]+"-"+splits[2]]=words[i]  
-				elif(splits[0]=="B"):
-			       		temp=temp+" "+words[i]
-			       	elif(splits[0]=="I"):
-					temp=temp+" "+words[i]
-			      	elif(splits[0]=="E"):
-					temp=temp+" "+words[i]
-				       	if(len(splits)==2):
-				        	if(splits[1]=="V"):
-				                	role[splits[1]]=temp.strip()
-				               	else:
-				                   	if splits[1] in role:
-				                        	role[splits[1]]+=" "+temp
-				                             	role[splits[1]]=role[splits[1]].strip()
-				                        else:
-				                               	role[splits[1]]=temp.strip()
-				       	elif(len(splits)==3):
-				             	if splits[1]+"-"+splits[2] in role:
-				              		role[splits[1]+"-"+splits[2]]+=" "+temp
-				             		role[splits[1]+"-"+splits[2]]=role[splits[1]+"-"+splits[2]].strip()
+						if(splits[1]=="V"):
+							role[splits[1]]=words[i]
 						else:
-				                	role[splits[1]+"-"+splits[2]]=temp.strip()
-				      	temp=""          
-			      	i+=1
+							if splits[1] in role:
+								role[splits[1]]+=" "+words[i]
+							else:
+								role[splits[1]]=words[i]
+					elif(len(splits)==3):
+						if splits[1]+"-"+splits[2] in role:
+							role[splits[1]+"-"+splits[2]]+=" "+words[i]
+						else:
+							role[splits[1]+"-"+splits[2]]=words[i]  
+				elif(splits[0]=="B"):
+					temp=temp+" "+words[i]
+				elif(splits[0]=="I"):
+					temp=temp+" "+words[i]
+				elif(splits[0]=="E"):
+					temp=temp+" "+words[i]
+					if(len(splits)==2):
+						if(splits[1]=="V"):
+							role[splits[1]]=temp.strip()
+						else:
+							if splits[1] in role:
+								role[splits[1]]+=" "+temp
+								role[splits[1]]=role[splits[1]].strip()
+							else:
+								role[splits[1]]=temp.strip()
+					elif(len(splits)==3):
+						if splits[1]+"-"+splits[2] in role:
+							role[splits[1]+"-"+splits[2]]+=" "+temp
+							role[splits[1]+"-"+splits[2]]=role[splits[1]+"-"+splits[2]].strip()
+						else:
+							role[splits[1]+"-"+splits[2]]=temp.strip()
+					temp=""          
+				i+=1
 			if("V" in role):
 				roles+=[role]
 		annotations['words']=words
@@ -286,10 +286,12 @@ class Annotator:
 		if(dep_parse):
 			annotations['dep_parse']=self.getDependency(annotations['syntax_tree'])
 		return annotations
+	
 def test():			
 	annotator=Annotator()
-	print annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True)
-	print annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['dep_parse']
-	print annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['chunk']
+	print(annotator.getBatchAnnotations(["He killed the man with a knife and murdered him with a dagger.","He is a good boy."],dep_parse=True))
+	print(annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['dep_parse'])
+	print(annotator.getAnnotations("Republican candidate George Bush was great.",dep_parse=True)['chunk'])
+
 if __name__ == "__main__":
 	test()
