@@ -8,7 +8,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8,<3.12.5"
+python = "^3.10,<3.12.5"
 
 # Actual dependencies
 2to3 = "^1.0" 
