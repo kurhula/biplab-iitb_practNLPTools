@@ -1,7 +1,9 @@
 from distutils.core import setup
 from distutils.command.install import INSTALL_SCHEMES
-files = ["practnlptools/*"]
+
 import os
+
+files = ["practnlptools/*"]
 
 def walkdir(dirname):
     rec_files=[]
@@ -9,7 +11,8 @@ def walkdir(dirname):
         rec_files+=[(cur,map(lambda f: os.path.join(cur,f),files))]
     return rec_files
 
-#walkdir("practnlp")
+walkdir("practnlp")
+
 for scheme in INSTALL_SCHEMES.values():
     scheme['data'] = scheme['purelib']
 

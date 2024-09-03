@@ -3,9 +3,9 @@ name = "practnlptools"
 version = "0.0.1"
 description = "A python 3 wrapper of SENA library according to --> https://github.com/biplab-iitb/practNLPTools"
 authors = ["Mulang Onando <mulang.onando@ibm.com>"]
-# packages = [
-#     {include="sqlreinforce", from="."}
-# ]
+packages = [
+    {include="practnlptools", from="."}
+]
 
 [tool.poetry.dependencies]
 python = "^3.8,<3.12.5"
