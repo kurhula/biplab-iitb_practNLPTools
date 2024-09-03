@@ -15,6 +15,7 @@ def walkdir(dirname):
 files = walkdir(directory)
 
 for scheme in INSTALL_SCHEMES.values():
+    print(scheme)
     scheme['data'] = scheme['purelib']
 
 setup(name = "practNLPTools",
