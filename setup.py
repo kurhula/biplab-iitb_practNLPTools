@@ -9,13 +9,13 @@ directory = "practnlptools"
 def walkdir(dirname):
     rec_files=[]
     for path in Path(dirname).rglob('*'):
-        rec_files.append(path)
+        rec_files.append(os.fspath(path))
     return rec_files
 
 files = walkdir(directory)
 
 for scheme in INSTALL_SCHEMES.values():
-    print(scheme)
+    print(str(scheme)+"\n\n")
     scheme['data'] = scheme['purelib']
 
 setup(name = "practNLPTools",
